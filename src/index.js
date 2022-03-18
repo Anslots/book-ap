@@ -1,17 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
+//jsx rules
+// return single element
+//div / section / article or fragment
+//use camelcase for html attribute
+//classname instead of class
+//close every element
+function BookList(){
+  return (
+  <section>
+    <Book/>
+   </section>
+  );  
+}
+const Book = () => {
+  return (
+   <article>
+      <Image></Image>
+    </article>
+  );
+}
+const Image = () => {
+  <img 
+    src='https://images-na.ssl-images-amazon.com/images/I/51irsfz72HL._SX320_BO1,204,203,200_.jpg'
+    alt='' 
+  /> 
+};
+  
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDom.render(<BookList/>,document.getElementById('root'));
