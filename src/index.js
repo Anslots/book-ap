@@ -8,46 +8,20 @@ import ReactDom from 'react-dom';
 //close every element
 // CSS
 import'./index.css';
+
+import{book} from './books'
+import Book from './Book'
+ 
 function BookList(){
   return (
-  <section className='booklist'>
-    <Book/>
-    <Book/>
-    <Book/>
-    <Book/>
-    <Book/>
-    <Book/>
+  <section className='book'>
+   {book.map ((book, index) => {
+     return <Book key={book.id} {...book}></Book>;
+})}
    </section>
   );  
 }
-const Book = () => {
-  return (
-   <article>
-      <Image></Image>
-      <Title></Title>
-      <Author></Author>
-    </article>
-  );
-}
-const Image = () => {
-  return (
-   <img 
-    src='https://images-na.ssl-images-amazon.com/images/I/71MnPe3BDnL._AC_UL604_SR604,400_.jpg'
-    alt=''
-  /> 
-  );
-};
-  
-const Title = () => {
-  return (
-   <h1>I'll Start Again Monday</h1>
-   );
-};
 
-const Author = () => {
-  return (
-    <h4>Lysa TerKeurst</h4>
-  );
-  };
+
 
 ReactDom.render(<BookList/>,document.getElementById('root'));
